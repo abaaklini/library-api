@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { createBook, getBooks, getBookById, updateBook, deleteBook } from '../controllers/book.controller';
+import {
+  createBook,
+  getBooks,
+  getBookById,
+  updateBook,
+  deleteBook,
+} from '../controllers/book.controller';
 
 const router = Router();
 
@@ -126,7 +132,7 @@ router.put('/books/:id', updateBook);
 
 /**
  * @swagger
- * /books/{id}:
+ * /bookjs/{id}:
  *      delete:
  *          summary: Remove um livro pelo ID
  *          tags: [Books]
@@ -144,7 +150,7 @@ router.put('/books/:id', updateBook);
  *                  description: Livro não encontrado
  *              500:
  *                  description: Erro ao remover o livro
- * 
+ *
  */
 router.delete('/books/:id', deleteBook);
 

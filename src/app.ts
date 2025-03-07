@@ -22,13 +22,14 @@ app.use('/api', bookRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Conectar ao MongoDB e iniciar o servidor
-mongoose.connect(process.env.MONGODB_URI as string)
+mongoose
+  .connect(process.env.MONGODB_URI as string)
   .then(() => {
     console.log('Conectado ao MongoDB');
     app.listen(PORT, () => {
       console.log(`Servidor rodando na porta ${PORT}`);
     });
   })
-  .catch(err => {
+  .catch((err) => {
     console.error('Erro ao conectar ao MongoDB', err);
   });
